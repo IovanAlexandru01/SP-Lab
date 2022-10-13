@@ -1,4 +1,6 @@
 <?php
+require_once('Author.php');
+require_once('Chapter.php');
 
 class Book
 {
@@ -6,41 +8,11 @@ class Book
     private $paragraphArray=[];
     private $imageArray=[];
     private $tableArray=[];
+    private $chapterArray=[];
+    private $author;
 
     function __construct($title) {
         $this->title = $title;
-    }
-
-    function getTitle(){
-        return $this->title;
-    }
-
-    public function setTitle($title){
-        $this->title = $title;
-    }
-
-    public function setParagraphArray($paragraphArray){
-        $this->paragraphArray = $paragraphArray;
-     }
-     
-    public function getParagraphArray(){
-        return $this->paragraphArray;
-    }
-
-    public function setImage($imageArray){
-        $this->imageArray = $imageArray;
-    }
-
-    function getImage(){
-        return $this->imageArray;
-    }
-
-    public function setTable($table){
-        $this->table = $table;
-    }
-
-    function getTable(){
-        return $this->tableArray;
     }
 
     function createNewParagraph($paragraph){
@@ -53,6 +25,21 @@ class Book
 
     function createNewTable($newTable){
         array_push($this->tableArray, $newTable);
+    }
+
+    function addAuthor($author){
+        $this->author = $author;
+    }
+    
+    function createChapter($chapter){
+        $capitol = new Chapter($chapter);
+        array_push($this->chapterArray, $capitol);
+        $index = sizeof($this->chapterArray) - 1;
+        return $index;
+    }
+
+    function getChapter($index){
+        return $this->chapterArray[$index];
     }
 
 }
