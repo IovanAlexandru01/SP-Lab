@@ -44,14 +44,4 @@ class Book
 
 }
 
-$carte = new Book('La vida loca');
-$carte->createNewParagraph('Paragraph 1');
-$carte->createNewParagraph('Paragraph 2');
-$carte->createNewParagraph('Paragraph 3');
-$carte->createNewImage('Image 1');
-$carte->createNewParagraph('Paragraph 4');
-$carte->createNewTable('Table 1');
-$carte->createNewParagraph('Paragraph 5');
-
-
 ?> 

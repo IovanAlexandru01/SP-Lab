@@ -5,7 +5,6 @@ class Chapter{
     private $name;
     private $subChapterArray=[];
    
-
     function __construct($name) {
         $this->name = $name;
     }
@@ -21,11 +20,8 @@ class Chapter{
         return $index;
     }
 
-    
-
-
-    function getChapter($index){
-        return $this->chapterArray[$index];
+    function getSubChapter($index){
+        return $this->subChapterArray[$index];
     }
 }
 

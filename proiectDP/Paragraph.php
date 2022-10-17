@@ -1,8 +1,8 @@
 <?php
-class Paragraph{
+require_once("Element.php");
+class Paragraph implements Element{
 
     private $text;
-
 
     function __construct($text) {
         $this->text = $text;
@@ -12,6 +12,5 @@ class Paragraph{
         echo $this->text;
     }
 }
-$paragraf = new Paragraph('hello');
-$paragraf->print();
+
 ?>
