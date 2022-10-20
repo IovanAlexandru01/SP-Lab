@@ -7,9 +7,21 @@ class Paragraph implements Element{
     function __construct($text) {
         $this->text = $text;
     }
+    
+    function add($element){
+        array_push($this->elementList, $element);
+    }
 
+    function get($element){
+
+    }
+
+    function remove($element){
+        
+    }
+    
     function print(){
-        echo $this->text;
+        echo "Paragraph: ".$this->text;
     }
 }
 

@@ -8,8 +8,20 @@ class Image implements Element{
         $this->imageName = $imageName;
     }
 
+    function add($element){
+        array_push($this->elementList, $element);
+    }
+
+    function get($element){
+
+    }
+
+    function remove($element){
+        
+    }
+
     function print(){
-        echo $this->imageName;
+        echo "Image with name:".$this->imageName;
     }
 }
 

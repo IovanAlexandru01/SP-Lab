@@ -1,8 +1,8 @@
 <?php
 require_once('Author.php');
-require_once('Chapter.php');
+require_once('Section.php');
 
-class Book
+class Book extends Section
 {
     private $title;
     private $paragraphArray=[];
@@ -38,8 +38,21 @@ class Book
         return $index;
     }
 
+    function addContent($element){
+        parent::add($element);
+    }
+
     function getChapter($index){
         return $this->chapterArray[$index];
+    }
+
+    function print(){
+        echo nl2br("Book: ".$this->title."\n");
+        echo nl2br("\n");
+        echo nl2br("Authors: "."\n");
+        echo("Author: ");
+        echo nl2br($this->author->print()."\n");
+        parent::print();
     }
 
 }
