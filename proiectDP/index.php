@@ -4,24 +4,36 @@ require_once('Author.php');
 require_once('Section.php');
 require_once('Paragraph.php');
 require_once('Image.php');
+require_once('ImageProxy.php');
 
-$carte = new Book('Amintiri din copilarie');
-$autor = new Author('Ion Creanga');
-$carte->addAuthor($autor);
-$cap1 = new Section("Capitolul 1");
-$cap11 = new Section("Capitolul 1.1");
-$cap111 = new Section("Capitolul 1.1.1");
-$cap1111 = new Section ("Subchapter 1.1.1.1");
-$carte->addContent(new Paragraph("Multumesc celor care..."));
-$carte->addContent($cap1);
-$cap1->add(new Paragraph("Moto capitol"));
-$cap1->add($cap11);
-$cap11->add(new Paragraph("Text from subchapter 1.1"));
-$cap11->add($cap111);
-$cap111->add(new Paragraph("Text from subchapter 1.1.1"));
-$cap111->add($cap1111);
-$cap1111->add(new Image("Image from subchapter 1.1.1.1"));
+$startTime = floor(microtime(true) * 1000);
+$img1 = new ImageProxy("Pamela Anderson");
+$img2 = new ImageProxy("Kim Kardashian");
+$img3 = new ImageProxy("Kirby Griffin");
+$playboyS1 = new Section("Front Cover");
+$playboyS1->add($img1);
+$playboyS2 = new Section("Summer Girls");
+$playboyS2->add($img2);
+$playboyS2->add($img3);
+$playboy = new Book("Playboy");
+$playboy->addContent($playboyS1);
+$playboy->addContent($playboyS2);
+$endTime = floor(microtime(true) * 1000);
+echo "Creation of the content took " . ($endTime - $startTime) . " milliseconds";
 
-$carte->print();
+$startTime = floor(microtime(true) * 1000);
+$playboyS1->print();
+$endTime = floor(microtime(true) * 1000);
+
+echo "Printing of the section 1 took " . ($endTime - $startTime) . "milliseconds";
+
+$startTime = floor(microtime(true) * 1000);
+$playboyS1->print();
+$endTime = floor(microtime(true) * 1000);
+
+echo "Printing again the section 1 took " . ($endTime - $startTime) . "milliseconds";
+
+
+
 
 ?>

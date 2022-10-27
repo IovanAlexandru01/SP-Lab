@@ -5,6 +5,7 @@ class Image implements Element{
     private $imageName;
 
     function __construct($imageName) {
+        sleep(5);
         $this->imageName = $imageName;
     }
 
