@@ -5,35 +5,32 @@ require_once('Section.php');
 require_once('Paragraph.php');
 require_once('Image.php');
 require_once('ImageProxy.php');
-
-$startTime = floor(microtime(true) * 1000);
-$img1 = new ImageProxy("Pamela Anderson");
-$img2 = new ImageProxy("Kim Kardashian");
-$img3 = new ImageProxy("Kirby Griffin");
-$playboyS1 = new Section("Front Cover");
-$playboyS1->add($img1);
-$playboyS2 = new Section("Summer Girls");
-$playboyS2->add($img2);
-$playboyS2->add($img3);
-$playboy = new Book("Playboy");
-$playboy->addContent($playboyS1);
-$playboy->addContent($playboyS2);
-$endTime = floor(microtime(true) * 1000);
-echo "Creation of the content took " . ($endTime - $startTime) . " milliseconds";
-
-$startTime = floor(microtime(true) * 1000);
-$playboyS1->print();
-$endTime = floor(microtime(true) * 1000);
-
-echo "Printing of the section 1 took " . ($endTime - $startTime) . "milliseconds";
-
-$startTime = floor(microtime(true) * 1000);
-$playboyS1->print();
-$endTime = floor(microtime(true) * 1000);
-
-echo "Printing again the section 1 took " . ($endTime - $startTime) . "milliseconds";
+require_once('AlignLeft.php');
+require_once('AlignRight.php');
+require_once('AlignCenter.php');
 
 
+$cap1 = new Section("Capitolul 1");
+$p1 = new Paragraph("Paragraph 1");
+$cap1->add($p1);
+$p2 = new Paragraph("Paragraph 2");
+$cap1->add($p2);
+$p3 = new Paragraph("Paragraph 3");
+$cap1->add($p3);
+$p4 = new Paragraph("Paragraph 4");
+$cap1->add($p4);
 
+echo "Printing without alignment";
+echo nl2br("\n");
+$cap1->print();
+
+$p1->setAlignment(new AlignCenter());
+$p2->setAlignment(new AlignRight());
+$p3->setAlignment(new AlignLeft());
+
+echo nl2br("\n");
+echo "Printing with alignment";
+echo nl2br("\n");
+$cap1->print();
 
 ?>
