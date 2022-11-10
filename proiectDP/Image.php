@@ -20,6 +20,10 @@ class Image implements Element{
     function remove($element){
         
     }
+    
+    function accept($visitor) {
+        $visitor->visitImage($this);
+    }
 
     function print(){
         echo "Image with name:".$this->imageName;

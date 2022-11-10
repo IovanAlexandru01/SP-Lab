@@ -21,6 +21,10 @@ class Paragraph implements Element{
         
     }
 
+    function accept($visitor) {
+        $visitor->visitParagraph($this);
+    }
+
     function setAlignment($alignment) {
         $this->alignment = $alignment;
     }

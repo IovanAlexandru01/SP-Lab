@@ -28,6 +28,10 @@ class ImageProxy implements Element {
         
     }
 
+    public function accept($visitor) {
+        $visitor->visitImageProxy($this);
+    }
+
 
     function print() {
         $realImage = $this->loadImage();

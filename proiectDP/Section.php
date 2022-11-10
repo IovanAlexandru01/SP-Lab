@@ -20,6 +20,14 @@ class Section implements Element {
     function remove($element){
 
     }
+
+    function accept($visitor) {
+        $visitor->visitSection($this);
+        foreach($this->elementList as $element) {
+            $element->accept($visitor);
+        }
+    }
+    
     function print(){
         echo $this->title;
         foreach($this->elementList as $element) {
